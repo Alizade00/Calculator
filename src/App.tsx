@@ -11,18 +11,17 @@ function New() {
         </View>
         <Image style={{ marginRight: 20, marginTop: 52 }} source={require('./assets/icons/Like.png')} />
       </View>
-      <View>
-        <View style={styles.text}>
-          <Text style={{ marginLeft: 30, fontSize: 24 }}>Astrophytum</Text>
-          <Text style={{ marginRight: 30, fontSize: 18 }}>$312.00</Text>
-          <View>
-            <Image source={require('./assets/icons/Selection.png')} />
-          </View>
-        </View>
+      <View style={styles.text}>
+        <Text style={{ marginLeft: 30, fontSize: 24, fontWeight: '800', color: 'black' }}>Astrophytum</Text>
+        <Text style={{ marginRight: 30, fontSize: 20, fontWeight: '800', color: 'black' }}>$312.00</Text>
         <View>
-          <Text style={{ fontWeight: '800' }}>SELECT POT</Text>
+          <Image style={{ marginTop: 10 }} source={require('./assets/icons/Selection.png')} />
         </View>
       </View>
+      <View style={styles.pot}>
+        <Text>SELECT POT</Text>
+      </View>
+
 
     </SafeAreaView>
   )
@@ -44,12 +43,15 @@ const styles = StyleSheet.create({
   text: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    height: 445,
+    alignItems: 'baseline',
+    height: 100,
     backgroundColor: 'white',
     borderRadius: 50,
     marginHorizontal: 8,
     paddingTop: 46,
-    fontWeight: '800',
-    color: 'black',
   },
+  pot: {
+    backgroundColor:'white',
+    fontWeight:'800'
+  }
 })
