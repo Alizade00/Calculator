@@ -28,14 +28,17 @@ function App() {
           <Text style={{ paddingLeft: 33, fontSize: 9 }}>w 300 × h 310 mm</Text>
           <Image source={require('./assets/images/Plant1.png')} />
           <View style={styles.footer}>
-            <Text style={{color: 'black', fontSize: 20, fontWeight: '800', marginLeft: 20, marginTop:-24}}>$228.00</Text>
+            <Text style={{color: 'black', fontSize: 20, fontWeight: '800', marginLeft: 20, marginTop:-40}}>$228.00</Text>
             <View style={styles.button}>
               <Text style={{color:'white', fontSize:30}}>+</Text>
             </View>
           </View>
         </View>
-        <View>
-        <Image style={styles.plant2} source={require('./assets/images/Plant2.png')}/>
+        <View style={styles.plant2}>
+        <Text style={styles.plantText2}>Astrophytum</Text>
+        <Text style={{ paddingLeft: 33, fontSize: 7 }}>w 230 × h 310 mm</Text>
+        <Image style={{marginTop:25, marginLeft:15}} source={require('./assets/images/Plant2.png')}/>  
+        <Text style={{color: 'black', fontSize: 15, fontWeight: '700', marginLeft: 24, marginTop:40}}>$242.00</Text>
         </View>
       </ScrollView>
       <View style={styles.slider}>
@@ -83,7 +86,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F1F4FB',
     borderRadius: 24,
     paddingTop: 12,
-    height: 470, 
+    height: 450, 
   },
   plantText: {
     fontSize: 21,
@@ -103,7 +106,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       borderBottomRightRadius: 24,
       borderTopLeftRadius: 12,
-      marginTop:-50,
+      marginTop:-70,
   },
   slider: {
     marginBottom:15, 
@@ -113,8 +116,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#F1F4FB',
     borderRadius: 24,
     marginLeft:40,
-    marginTop:88,
+    marginTop:40,
+    height: 380,
 
+  },
+  plantText2 : {
+    fontSize: 16,
+    color: 'black',
+    paddingLeft: 31,
+    paddingTop: 35,
+    fontWeight: '400'
   }
 
 })
