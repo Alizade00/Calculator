@@ -1,47 +1,48 @@
-import React from "react";
-import { Button, Pressable, SafeAreaView, StyleSheet, Text, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { Button, Pressable, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
+const arrButtons =['7','8','9','4','5','6','1','2','3', '0']
+const arrOperators=['+','-','*','/', '=']
 
 function App() {
+  const [firstNumber, setFirstNumber] = useState();
+  const [secondNumber, setSecondNumber] = useState();
+  const [operator, setOperator] = useState();
+  const [result, setresult] = useState(0);
+
   return (
-    <SafeAreaView style={styles.main}>
-      <Text style={styles.text}>0</Text>
-      <Pressable style={({pressed}) =>({
-        ...styles.button, 
-        backgroundColor: pressed ? 'tomato' : 'black',
-        opacity: pressed ? 0.5 : 1,
-        height: pressed ? 60 : 40})}>
-      <Text style={styles.buttonlabel}>Click me</Text>
-      </Pressable>
-      <Button title="Increment" />
-      <Button title="Deccrement" />
+    <SafeAreaView style={styles.area}>
+      <View style={styles.result}>
+        <Text style={styles.resultText}>{result}</Text>
+      </View>
+      <View>
+        < View>
+        {arrButtons.map(() =>{
+          return(
+            <TouchableOpacity>
+              
+            </TouchableOpacity>
+          )
+        })}
+        </View>
+      </View>
     </SafeAreaView>
   )
 }
 export default App
 
 const styles=StyleSheet.create ({
-  main: {
+  area: {
     flex:1,
-    justifyContent:'center',
-    alignItems:'center',
-    backgroundColor:'white'
+    backgroundColor: 'black'
   },
-  text:{
-    fontSize:50,
-    fontWeight:'bold',
-    color:'aqua',
+  result: {
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    flex: 0.40
   },
-  button:{
-    backgroundColor:'black',
-    borderRadius: 100,
-    width: '80%',
-    height: 40,
-    justifyContent:'center',
-    alignItems:'center'
+  resultText: {
+    color: 'white',
+    fontSize:90,
   },
-  buttonlabel: {
-    color:'white',
-    textTransform:'uppercase',
-    fontWeight:'600'
-  }
 })
