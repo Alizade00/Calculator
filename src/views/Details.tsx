@@ -1,25 +1,32 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, SafeAreaView, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native';
 
-export const DetailsView =() => {
+export const Details = () => {
   const [count, setCount] = useState(1);
 
-  const plus =() => {
+  const plus = () => {
     setCount(count + 1);
   };
-  const minus =() => {
-      count !== 0 && setCount(count - 1)
+  const minus = () => {
+    count !== 0 && setCount(count - 1)
+  };
+
+
+  const navigation = useNavigation();
+  const goBack = () => {
+    navigation.goBack();
   };
 
 
   return (
     <SafeAreaView style={styles.area}>
-      <View style={styles.header}>
-        <Image style={{ marginLeft: 30, marginTop: 68 }} source={require('./assets/icons/Back.png')} />
-        <View>
-          <Image style={styles.plant} source={require('./assets/images/plant.png')} />
-        </View>
-        <Image style={{ marginRight: 20, marginTop: 52 }} source={require('./assets/icons/Like.png')} />
+      <View style={{ flexDirection: 'row' }}>
+        <TouchableOpacity onPress={goBack} style={styles.header}>
+          <Image style={{ marginLeft: 30, marginTop: 68 }} source={require('../assets/icons/Back.png')} />
+        </TouchableOpacity>
+        <Image style={styles.plant} source={require('../assets/images/Plant2.png')} />
+        <Image style={{ marginRight: 35, marginTop: 52 }} source={require('../assets/icons/Like.png')} />
       </View>
       <View style={styles.text}>
         <View>
@@ -28,31 +35,39 @@ export const DetailsView =() => {
             <Text style={{ fontSize: 20, fontWeight: '800', color: 'black' }}>$312.00</Text>
           </View>
           <View style={styles.selectButton}>
-            <TouchableOpacity style={{flexDirection:'row'}} onPress={minus}>
-              <Text style={{ fontSize: 25, color: 'black', fontWeight:'300' }}>-</Text>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={minus}>
+              <Text style={{ fontSize: 25, color: 'black', fontWeight: '300' }}>-</Text>
             </TouchableOpacity>
-            <Text style={{ fontSize:20, fontWeight: '800', color: 'black' }}>{count}</Text>
+            <Text style={{ fontSize: 20, fontWeight: '800', color: 'black' }}>{count}</Text>
             <TouchableOpacity onPress={plus}>
-              <Text style={{ fontSize: 25, color: 'black', fontWeight:'300' }}>+</Text>
+              <Text style={{ fontSize: 25, color: 'black', fontWeight: '300' }}>+</Text>
             </TouchableOpacity>
           </View>
           <View>
             <Text style={styles.selectPot}>SELECT POT</Text>
             <View style={styles.pot}>
-              <Image source={require('./assets/images/Pot1.png')} />
-              <Image source={require('./assets/images/Pot2.png')} />
-              <Image source={require('./assets/images/Pot3.png')} />
+              <Image source={require('../assets/images/Pot1.png')} />
+              <Image source={require('../assets/images/Pot2.png')} />
+              <Image source={require('../assets/images/Pot3.png')} />
             </View>
           </View>
           <View style={styles.description}>
             <Text style={{ color: 'black', fontWeight: '800', fontSize: 11 }}>DESCRIPTION</Text>
             <Text style={{ fontSize: 12, fontWeight: '500', color: '#A9A9A9', marginTop: 6 }}>The species of the genus Astrophytum usually grow individually with spherical to columnar green shoots and reach heights of up to 1.5 meters...
-              <Text   style={{ color: 'black', fontWeight: '500', borderBottomWidth: 1, borderBottomColor: 'black',textDecorationLine:'underline' }} >detail</Text>
+              <TouchableOpacity>
+                <Text style={{
+                  color: 'black',
+                  fontWeight: '500',
+                  borderBottomWidth: 1,
+                  borderBottomColor: 'black',
+                  // textDecorationLine: 'underline'
+                }}>detail</Text>
+              </TouchableOpacity>
             </Text>
           </View>
           <View>
             <TouchableOpacity style={styles.cart}>
-              <Image style={{ marginRight: 16 }} source={require('./assets/icons/Cart.png')} />
+              <Image style={{ marginRight: 16 }} source={require('../assets/icons/Cart.png')} />
               <Text style={{ color: 'white', fontWeight: '800', fontSize: 11 }}>ADD TO CART</Text>
             </TouchableOpacity>
           </View>
@@ -74,6 +89,9 @@ const styles = StyleSheet.create({
   },
   plant: {
     marginTop: 37,
+    marginHorizontal: 50,
+    height: 263,
+    width: 174,
   },
   text: {
     flexDirection: 'row',
@@ -116,17 +134,17 @@ const styles = StyleSheet.create({
 
   },
   selectButton: {
-    flexDirection:'row',
+    flexDirection: 'row',
     backgroundColor: 'white',
-    alignItems:'center',
+    alignItems: 'center',
     justifyContent: 'space-evenly',
     marginRight: 250,
     marginLeft: 30,
     marginTop: 15,
-    padding:0.1,
-    borderRadius:3,
-    borderWidth:0.2,
-    borderColor:'gray'
+    padding: 0.1,
+    borderRadius: 3,
+    borderWidth: 0.2,
+    borderColor: 'gray'
   }
 
 
