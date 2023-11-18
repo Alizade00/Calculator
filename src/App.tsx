@@ -8,10 +8,10 @@ import { DrawerNavigator } from './navigation/drawer';
 
 const Stack = createStackNavigator();
 
-export const App = () => {
+const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
+    <NavigationContainer >
+      <Stack.Navigator initialRouteName='Drawer'>
         <Stack.Screen name='Drawer' component={DrawerNavigator}/>
         <Stack.Screen name='Home' component={Home} options={{headerShown:false}} />
         <Stack.Screen name='Details' component={Details} options={{headerShown:false}} />
@@ -19,3 +19,4 @@ export const App = () => {
     </NavigationContainer>
   )
 }
+export default App

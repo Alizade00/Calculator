@@ -1,5 +1,5 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export const Home = () => {
@@ -7,7 +7,6 @@ export const Home = () => {
   const handleNavigate = () => {
     navigation.navigate('Details')
   }
-
   return (
     <SafeAreaView style={styles.area}>
       <View style={styles.header}>

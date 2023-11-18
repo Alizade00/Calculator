@@ -1,8 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { Image, SafeAreaView, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native';
 
-export const Details = () => {
+export const Details = () => { 
   const [count, setCount] = useState(1);
 
   const plus = () => {
