@@ -1,16 +1,21 @@
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
+import { DrawerActions, useNavigation } from "@react-navigation/native";
 import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export const Home = () => {
   const navigation = useNavigation()
-  const handleNavigate = () => {
+  const BackTo = () => {
     navigation.navigate('Details')
+  }
+  const openDrawer = () => {
+    navigation.dispatch(DrawerActions.openDrawer())
   }
   return (
     <SafeAreaView style={styles.area}>
       <View style={styles.header}>
-        <Image source={require('../assets/icons/Menu.png')} />
+        <TouchableOpacity onPress={openDrawer}>
+          <Image source={require('../assets/icons/Menu.png')} />
+        </TouchableOpacity>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <Image style={{ marginRight: 46 }} source={require('../assets/icons/Basket.png')} />
           <Image source={require('../assets/icons/Search.png')} />
@@ -39,7 +44,7 @@ export const Home = () => {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={handleNavigate}  style={styles.plant2}>
+        <TouchableOpacity onPress={BackTo} style={styles.plant2}>
           <Text style={styles.plantText2}>Astrophytum</Text>
           <Text style={{ paddingLeft: 33, fontSize: 7 }}>w 230 × h 310 mm</Text>
           <Image style={{ marginTop: 25, marginLeft: 15 }} source={require('../assets/images/Plant2.png')} />
